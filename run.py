@@ -45,3 +45,25 @@ class Deck:
                 card = self.cards.pop()
                 cards_dealt.append(card)
         return cards_dealt               
+
+class Hand:
+    def __init__(self, dealer=False):
+        self.cards = []
+        self.value = 0
+        self.dealer = dealer
+
+    def add_card(self, card_list):
+        self.cards.extend(card_list)
+
+    def calculate_value(self):
+        self.value = 0
+        has_ace = False
+
+        for card in self.cards:
+            card_value = int(card.rank["value"])
+            self.value += card_value
+            if card.rank["rank"] == "A":
+                has_ace = True
+
+        if has_ace and self.value > 21:
+            self.value -= 10
