@@ -67,3 +67,4 @@ class Hand:
 
         if has_ace and self.value > 21:
             self.value -= 10
+            
