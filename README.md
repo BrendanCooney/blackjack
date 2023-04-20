@@ -29,3 +29,18 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+
+![BlackJack Logo](/assets/images/blackjack1.PNG)
+
+# Blackjack 
+----
+Blackjack is a card game with the aim of getting to the number 21 which is Blackjack.
+
+There are four suits of cards in the game when playing with a normal deck. Diamonds, Clubs, Hearts and Spades.
+The Ace in each suit can either be valued at 11 or 1. This is where the trick come in. 
+
+In this card game there is one player who is playing against the dealer. The aim is to get to 21 before the dealer.
+
+The dealer deals cards in their suits and values. The player can choose to either 'Hit' or 'Stand' hit means they request another card to move get closer to the total. Stand means they feel they are too close to the total and will not take a card this round. 
+There is risk either way in the choice. That is the game. 

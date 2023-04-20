@@ -1,6 +1,4 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+
 
 import random
 
@@ -98,7 +96,7 @@ class Game:
       try:
         games_to_play = int(input("How many games do you want to play?\n "))
       except:
-        print("🙈🙉 You must enter a number!")
+        print(" 🙈🙉 You must enter a number! ")
 
     while game_number < games_to_play:
       game_number += 1
@@ -114,11 +112,11 @@ class Game:
         dealer_hand.add_card(deck.deal(1))
 
       print()
-      print("🃏WELCOME TO PYTHON BLACKJACK!🃏")
+      print("🃏 WELCOME TO BLACKJACK ONLINE! 🃏")
       print()
-      #print(f"Game {game_number} of {games_to_play}")
+      print("YOU HAVE 3 TURNS TO PLAY AGAINST THE COMPUTER! GOOD LUCK!")
       print()
-      print("🤑!!PLAY RIGHT AND WIN BIG!!🤑")
+      print("🤑 !!PLAY RIGHT AND WIN BIG!! 🤑")
       print()
       player_hand.display()
       dealer_hand.display()
@@ -128,7 +126,7 @@ class Game:
 
       choice = ""
       while player_hand.get_value() < 21 and choice not in ["s", "stand"]:
-        choice = input("Please choose 'Hit' or 'Stand':\n ").lower()
+        choice = input("Please type your choice of 'Hit' or 'Stand' to continue!:\n ").lower()
         print()
         while choice not in ["h", "s", "hit", "stand"]:
           choice = input("Please enter 'Hit' or 'Stand' (or H/S)\n").lower()
@@ -153,12 +151,16 @@ class Game:
         continue
 
       print("Final Results")
-      print("Your hand:", player_hand_value)
-      print("Dealer's hand:", dealer_hand_value)
+      print("Your hand is shown in the cards below:", player_hand_value)
+      print("Dealer's hand is shown in the cards below:", dealer_hand_value)
 
       self.check_winner(player_hand, dealer_hand, True)
 
     print("\nThanks for playing!")
+    print("\nRun the program again to keep playing!")
+    print()
+    print()
+    
 
 
   def check_winner(self, player_hand, dealer_hand, game_over=False):
@@ -167,24 +169,24 @@ class Game:
         print("You busted. Dealer wins! Maybe Next Time! 😭")
         return True
       elif dealer_hand.get_value() > 21:
-        print("Dealer busted. You win! WINNER WINNER CHICKEN DINNER! 😀🏆")
+        print("Dealer busted. You win! WINNER WINNER CHICKEN DINNER! 😀 🏆 ")
         return True
       elif dealer_hand.is_blackjack() and player_hand.is_blackjack():
-        print("Both players have blackjack! Tie! 😑👀")
+        print("Both players have blackjack! Tie! 😑 👀")
         return True
       elif player_hand.is_blackjack():
-        print("You have blackjack. You win!..WINNER WINNER CHICKEN DINNER! 😀🏆👑")
+        print("You have blackjack. You win!..WINNER WINNER CHICKEN DINNER! 😀 🏆 👑 ")
         return True
       elif dealer_hand.is_blackjack():
         print("Dealer has blackjack. Dealer wins! 😭 Maybe Next Time!")
         return True
     else:
       if player_hand.get_value() > dealer_hand.get_value():
-        print("You win! ..WINNER WINNER CHICKEN DINNER! 😀🏆")
+        print("You win! ..WINNER WINNER CHICKEN DINNER! 😀 🏆 ")
       elif player_hand.get_value() == dealer_hand.get_value():
-        print("Tie! 😑😒")
+        print("Tie! 😑 😒 ")
       else:
-        print("Dealer wins. 😭 Maybe Next Time!")
+        print("Dealer wins. 😭  Maybe Next Time!")
       return True
     return False
 
