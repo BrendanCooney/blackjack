@@ -91,12 +91,7 @@ class Game:
   def play(self):
     game_number = 0
     games_to_play = 3
-
-    while games_to_play <= 0:
-      try:
-        games_to_play = int(input("How many games do you want to play?\n "))
-      except:
-        print(" 🙈🙉 You must enter a number! ")
+    
 
     while game_number < games_to_play:
       game_number += 1
@@ -114,7 +109,7 @@ class Game:
       print()
       print("🃏 !!WELCOME TO BLACKJACK ONLINE!! 🃏")
       print()
-      print("YOU HAVE 3 TURNS TO PLAY AGAINST THE COMPUTER! GOOD LUCK!")
+      print("YOU HAVE 3 TURNS TO PLAY! GOOD LUCK!")
       print()
       print("🤑 !!PLAY RIGHT AND WIN BIG!! 🤑")
       print()
