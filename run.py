@@ -74,7 +74,7 @@ class Hand:
         return self.get_value() == 21
 
     def display(self, show_all_dealer_cards=False):
-        print(f'''{"Dealer's" if self.dealer else "Your"} hand:''')
+        print(f'''{"Dealer's" if self.dealer else "Your"} hand is shown in the cards below:''')
         for index, card in enumerate(self.cards):
             if index == 0 and self.dealer \
             and not show_all_dealer_cards and not self.is_blackjack():
@@ -112,7 +112,7 @@ class Game:
         dealer_hand.add_card(deck.deal(1))
 
       print()
-      print("🃏 WELCOME TO BLACKJACK ONLINE! 🃏")
+      print("🃏 !!WELCOME TO BLACKJACK ONLINE!! 🃏")
       print()
       print("YOU HAVE 3 TURNS TO PLAY AGAINST THE COMPUTER! GOOD LUCK!")
       print()
@@ -151,8 +151,8 @@ class Game:
         continue
 
       print("Final Results")
-      print("Your hand is shown in the cards below:", player_hand_value)
-      print("Dealer's hand is shown in the cards below:", dealer_hand_value)
+      print("Your hand:", player_hand_value)
+      print("Dealer's hand:", dealer_hand_value)
 
       self.check_winner(player_hand, dealer_hand, True)
 
