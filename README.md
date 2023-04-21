@@ -1,35 +1,3 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome BrendanCooney,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
-
 
 ![BlackJack Logo](/assets/images/blackjack1.PNG)
 
@@ -44,3 +12,50 @@ In this card game there is one player who is playing against the dealer. The aim
 
 The dealer deals cards in their suits and values. The player can choose to either 'Hit' or 'Stand' hit means they request another card to move get closer to the total. Stand means they feel they are too close to the total and will not take a card this round. 
 There is risk either way in the choice. That is the game. 
+
+Here is the live version of my project:
+
+https://pythonblackjack.herokuapp.com/
+
+
+![Python Responsive](/assets/images/python-responsive.PNG)
+
+## How to Play
+----
+
+When playing the Game follow the prompts of the messages in the console.
+Choose either "Hit" or "Stand" to get the closest to 21. The aim is 21 but the closest wins.
+If you get 21 you have scored Blackjack and will win. 
+
+
+## Features
+----
+
+
+## Testing
+----
+All testing was done by myself and my sons on game play. 
+
+
+
+## Bugs
+----
+
+Although there are no functional bugs that could be found. ( I used my sons as bug testers and asked them to break the game.) There are syntax errors in the code which I was still working on a the time of submission.
+
+While the syntax spacing is not 100% the application does run and work. 
+
+## Deployment
+______
+This project has been deployed from Git Hub to Heroku at the link above. 
+
+
+
+## Credits
+______
+
+All credit goes to Beau Carnes of Free Code Camp. I followed the Blackjack game tutorial online.
+I looked at a number of other games. This one produced a simple result. 
+
+https://www.youtube.com/watch?v=eWRfhZUzrAc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=6
+
