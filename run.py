@@ -1,13 +1,50 @@
-
-
 import random
 
+""""
+This function requests the players name before they play.
+The player name can be printed out after the game.
+""""
+
+def get_player_name():
+  player_name = input("Enter your name:")
+  return player_name
+  print(get_player_name)
+
+""""
+This is the Class called Card
+It has the attributes of suit (Clubs, Diamonds, Heards, Spades)
+It also has the attributes of rank (Ace,2..Jack,Queen,King)
+
+""""
+
 class Card:
-    def __init__(self, suit, rank):
-        self.suit = suit
-        self.rank = rank
-    def __str__(self):
-        return f"{self.rank['rank']} of {self.suit}"
+
+def __init__(self, suit, rank):
+    self.suit = suit
+    self.rank = rank
+    self.value = self.assign_value(rank)
+
+""""
+This function returns the values of the rank and suit of the card.
+
+""""
+def __str__(self):
+    return f"{self.rank} of {self.suit}"
+
+""""
+The assign value  if - else function adds numerical values to the rank of the cards 
+
+""""
+
+def assign_value(self, rank):
+    if rank in ["Jack", "Queen", "King"]:
+      return 10
+    elif rank == "Ace":
+      return 11
+    else:
+      return int(rank)
+
+
 
 class Deck:
     def __init__(self):
@@ -113,6 +150,7 @@ class Game:
       print()
       print("🤑 !!PLAY RIGHT AND WIN BIG!! 🤑")
       print()
+      print(get_player_name)
       player_hand.display()
       dealer_hand.display()
 
@@ -187,4 +225,5 @@ class Game:
 
   
 g = Game()
+get_player_name()
 g.play()
