@@ -88,11 +88,10 @@ The project was deployed using code Institutes mockterminal for Heroku.
 
 
 
-## Credits
+## References
 ______
 
-All credit goes to The Code Institute and Beau Carnes of Free Code Camp. I followed the Blackjack game tutorial online.
-I looked at a number of other games whne choosing the project. This one produced a simple, effective and fun result even though there were complex learning steps in the code.  
-
+Information that helped me build this game is listed below: 
+https://www.w3schools.com/python/python_functions.asp
 https://www.youtube.com/watch?v=eWRfhZUzrAc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=6
 
