@@ -91,7 +91,12 @@ The project was deployed using code Institutes mockterminal for Heroku.
 ## References
 ______
 
-Information that helped me build this game is listed below: 
-https://www.w3schools.com/python/python_functions.asp
-https://www.youtube.com/watch?v=eWRfhZUzrAc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=6
+### Information that helped me build this game is listed below: 
+* https://www.w3schools.com/python/python_functions.asp
+* https://www.w3schools.com/python/python_classes.asp
+* https://www.youtube.com/watch?v=eWRfhZUzrAc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=6
+* https://bicyclecards.com/how-to-play/blackjack/
+* https://www.geeksforgeeks.org/blackjack-console-game-using-python/
+
+
 

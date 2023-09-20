@@ -44,151 +44,62 @@ def assign_value(self, rank):
     else:
       return int(rank)
 
-      
+""""
+This Class is for the deck of Cards.
 
-class Hand:
-    def __init__(self, dealer=False):
-        self.cards = []
-        self.value = 0
-        self.dealer = dealer
+The first function defines the deck of cards and generates it.
 
-    def add_card(self, card_list):
-        self.cards.extend(card_list)
+The  generate_deck function generates cards  in each deck with various values.
 
-    def calculate_value(self):
-        self.value = 0
-        has_ace = False
+The shuffle function shuffles cards using random 
 
-        for card in self.cards:
-            card_value = int(card.rank["value"])
-            self.value += card_value
-            if card.rank["rank"] == "A":
-                has_ace = True
+The deal function deals the cards. 
 
-        if has_ace and self.value > 21:
-            self.value -= 10
-            
-    def get_value(self):
-        self.calculate_value()
-        return self.value
+""""
 
-    def is_blackjack(self):
-        return self.get_value() == 21
+Class Deck: 
 
-    def display(self, show_all_dealer_cards=False):
-        print(f'''{"Dealer's" if self.dealer else "Your"} hand is shown in the cards below:''')
-        for index, card in enumerate(self.cards):
-            if index == 0 and self.dealer \
-            and not show_all_dealer_cards and not self.is_blackjack():
-                print("hidden")
-            else:
-                print(card)
-
-        if not self.dealer:
-            print("Value:", self.get_value())
-        print()            
-
-class Game:
-
-  def play(self):
-    game_number = 0
-    games_to_play = 3
-    
-
-    while game_number < games_to_play:
-      game_number += 1
-
-      deck = Deck()
-      deck.shuffle()
-
-      player_hand = Hand()
-      dealer_hand = Hand(dealer=True)
-
-      for i in range(2):
-        player_hand.add_card(deck.deal(1))
-        dealer_hand.add_card(deck.deal(1))
-
-      print()
-      print("🃏 !!WELCOME TO BLACKJACK ONLINE!! 🃏")
-      print()
-      print("YOU HAVE 3 TURNS TO PLAY! GOOD LUCK!")
-      print()
-      print("🤑 !!PLAY RIGHT AND WIN BIG!! 🤑")
-      print()
-      print(get_player_name)
-      player_hand.display()
-      dealer_hand.display()
-
-      if self.check_winner(player_hand, dealer_hand):
-        continue
-
-      choice = ""
-      while player_hand.get_value() < 21 and choice not in ["s", "stand"]:
-        choice = input("Please type your choice of 'Hit' or 'Stand' to continue!:\n ").lower()
-        print()
-        while choice not in ["h", "s", "hit", "stand"]:
-          choice = input("Please enter 'Hit' or 'Stand' (or H/S)\n").lower()
-          print()
-        if choice in ["hit", "h"]:
-          player_hand.add_card(deck.deal(1))
-          player_hand.display()
-
-      if self.check_winner(player_hand, dealer_hand):
-        continue
-
-      player_hand_value = player_hand.get_value()
-      dealer_hand_value = dealer_hand.get_value()
-
-      while dealer_hand_value < 17:
-        dealer_hand.add_card(deck.deal(1))
-        dealer_hand_value = dealer_hand.get_value()
-
-      dealer_hand.display(show_all_dealer_cards=True)
-
-      if self.check_winner(player_hand, dealer_hand):
-        continue
-
-      print("Final Results")
-      print("Your hand:", player_hand_value)
-      print("Dealer's hand:", dealer_hand_value)
-
-      self.check_winner(player_hand, dealer_hand, True)
-
-    print("\nThanks for playing!")
-    print("\nRun the program again to keep playing!")
-    print()
-    print()
-    
+def__init__(self):
+self.cards = self.generate_deck()
 
 
-  def check_winner(self, player_hand, dealer_hand, game_over=False):
-    if not game_over:
-      if player_hand.get_value() > 21:
-        print("You busted. Dealer wins! Maybe Next Time! 😭")
-        return True
-      elif dealer_hand.get_value() > 21:
-        print("Dealer busted. You win! WINNER WINNER CHICKEN DINNER! 😀 🏆 ")
-        return True
-      elif dealer_hand.is_blackjack() and player_hand.is_blackjack():
-        print("Both players have blackjack! Tie! 😑 👀")
-        return True
-      elif player_hand.is_blackjack():
-        print("You have blackjack. You win!..WINNER WINNER CHICKEN DINNER! 😀 🏆 👑 ")
-        return True
-      elif dealer_hand.is_blackjack():
-        print("Dealer has blackjack. Dealer wins! 😭 Maybe Next Time!")
-        return True
-    else:
-      if player_hand.get_value() > dealer_hand.get_value():
-        print("You win! ..WINNER WINNER CHICKEN DINNER! 😀 🏆 ")
-      elif player_hand.get_value() == dealer_hand.get_value():
-        print("Tie! 😑 😒 ")
-      else:
-        print("Dealer wins. 😭  Maybe Next Time!")
-      return True
-    return False
+def generate_deck(self):
+    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
+    ranks = [str(i) for i in range(2, 11)] + ["Ace", "Jack", "Queen", "King"]
+    return [Card(suit, rank) for suit in suits for rank in ranks]
 
-  
-g = Game()
-get_player_name()
-g.play()
+def shuffle(self):
+    random.shuffle(self.cards)
+
+def deal(self):
+  return self.cards.pop()
+
+""""
+The Player Class is for the player in the card game.
+The attributes are the players name and the players hand. 
+The cards in the players hand must be printed to the console
+
+""""
+class Player:
+
+def __init__(self, name):
+    self.name = name
+    self.hand = []
+
+def receive_card(self, card):
+    self.hand.append(card)
+    self.adjust_for_ace()
+
+def adjust_for_ace(self):
+    total_value = sum(card.value for card in self.hand)
+    num_aces = sum(1 for card in self.hand if card.rank == 'A')
+    while total_value > 21 and num_aces:
+      total_value -= 10
+      num_aces -= 1
+
+def hand_value(self):
+    return sum(card.value for card in self.hand)
+
+def display_hand(self):
+    for card in self.hand:
+      print(card)
