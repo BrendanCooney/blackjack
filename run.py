@@ -63,16 +63,16 @@ def__init__(self):
 self.cards = self.generate_deck()
 
 
-def generate_deck(self):
-    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
-    ranks = [str(i) for i in range(2, 11)] + ["Ace", "Jack", "Queen", "King"]
-    return [Card(suit, rank) for suit in suits for rank in ranks]
+  def generate_deck(self):
+      suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
+      ranks = [str(i) for i in range(2, 11)] + ["Ace", "Jack", "Queen", "King"]
+      return [Card(suit, rank) for suit in suits for rank in ranks]
 
-def shuffle(self):
-    random.shuffle(self.cards)
+  def shuffle(self):
+      random.shuffle(self.cards)
 
-def deal(self):
-  return self.cards.pop()
+  def deal(self):
+    return self.cards.pop()
 
 """"
 The Player Class is for the player in the card game.
@@ -82,24 +82,41 @@ The cards in the players hand must be printed to the console
 """"
 class Player:
 
-def __init__(self, name):
-    self.name = name
-    self.hand = []
+  def __init__(self, name):
+      self.name = name
+      self.hand = []
 
-def receive_card(self, card):
-    self.hand.append(card)
-    self.adjust_for_ace()
+  def receive_card(self, card):
+      self.hand.append(card)
+      self.adjust_for_ace()
 
-def adjust_for_ace(self):
-    total_value = sum(card.value for card in self.hand)
-    num_aces = sum(1 for card in self.hand if card.rank == 'A')
-    while total_value > 21 and num_aces:
-      total_value -= 10
-      num_aces -= 1
+  def adjust_for_ace(self):
+      total_value = sum(card.value for card in self.hand)
+      num_aces = sum(1 for card in self.hand if card.rank == 'A')
+      while total_value > 21 and num_aces:
+        total_value -= 10
+        num_aces -= 1
 
-def hand_value(self):
-    return sum(card.value for card in self.hand)
+  def hand_value(self):
+      return sum(card.value for card in self.hand)
 
-def display_hand(self):
-    for card in self.hand:
-      print(card)
+  def display_hand(self):
+      for card in self.hand:
+        print(card)
+
+""""
+This is a class that represents the blackjack game.
+it involves the dealer dealing the player and dealers hands and then it checks for a win. 
+
+""""
+class Game:
+
+  def __init__(self):
+      self.deck = Deck()
+      self.player = Player("Player")
+      self.dealer = Player("Dealer")
+
+""""
+This function works on validating input 
+If the input is incorrect the function asks for "Hit" or "Stand"
+""""
