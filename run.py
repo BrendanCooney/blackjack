@@ -83,9 +83,14 @@ The cards in the players hand must be printed to the console
 """
 class Player:
 
+"""
+This function defines the player and the hand
+"""
+
   def __init__(self, name):
       self.name = name
       self.hand = []
+
 
   def receive_card(self, card):
       self.hand.append(card)
@@ -167,11 +172,35 @@ def player_turn(self):
 
 """
 This function is the dealers turn in the game.
-I compares the hand values of the player and dealer and prints the result
+This method deals cards to the dealer until their hand value is at least 17.
 """
 
 def dealer_turn(self):
   print("\nDealer's turn:")
   while self.dealer.hand_value() < 17:
     self.dealer.receive_card(self.deck.deal())
-  
+
+
+"""
+This function checks who won the game.
+It compares the hand values of the player and dealer and prints the result
+"""
+
+def check_winner(self): 
+  player_val = self.player.hand_value()
+  dealer_val = self.dealer.hand_vale()
+
+  print(f"\nYour hand value: {player_val}")
+  print(f"Dealer's hand value: {dealer_val}")
+
+  if dealer_val > 21 or (player_val <=21 and player_val > dealer_val):
+    print("You win!")
+  elif player_val == dealer_val:
+    print("It's a tie!")
+  else:
+    print("Dealer wins!")
+    print("")
+
+if __name__ == "__main__"
+game = Game()
+game.play()
