@@ -97,6 +97,7 @@ ______
 * https://www.youtube.com/watch?v=eWRfhZUzrAc&list=RDCMUC8butISFwT-Wl7EV0hUK0BQ&index=6
 * https://bicyclecards.com/how-to-play/blackjack/
 * https://www.geeksforgeeks.org/blackjack-console-game-using-python/
+* https://www.geeksforgeeks.org/python-list-pop-method/
 
 
 

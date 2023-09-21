@@ -51,9 +51,9 @@ The first function defines the deck of cards and generates it.
 
 The  generate_deck function generates cards  in each deck with various values.
 
-The shuffle function shuffles cards using random 
+The shuffle function shuffles cards using random.
 
-The deal function deals the cards. 
+The deal function deals the cards taking the next card in the deck. 
 
 """"
 
@@ -119,4 +119,60 @@ class Game:
 """"
 This function works on validating input 
 If the input is incorrect the function asks for "Hit" or "Stand"
+""""
+  def input_with_validation(self, prompt, valid_inputs):
+    while True:
+      user_input = input(prompt).lower().strip()
+      if user_input in valid_inputs:
+        return user_input
+      print("Invalid choice. Please enter Hit or Stand.")
+
+""""
+This function starts the game play of blackjack.
+It lists other functions, shuffle, recieveing cards, players turn, dealers turn, evaluating values and 
+checking for the winner. 
+""""
+  def play(self):
+      self.deck.shuffle()
+      for _ in range(2):
+        self.player.receive_card(self.deck.deal())
+        self.dealer.receive_card(self.deck.deal())
+      self.player_turn()
+      if self.player.hand_value() <= 21:
+        self.dealer_turn()
+      self.check_winner()
+""""
+This function shows what happes when the player is dealt a card. 
+If the players initial hand is less than 21 it asks if the player wants to hit or stand. 
+
+""""
+
+  def player_turn(self):
+    while True:
+      print("Your hand:")
+      self.player.display_hand()
+      if self.player.hand_value() > 21:
+        print("Busted!")
+        return
+      action = input("Do you want to 'hit' or 'stand'? ").lower()
+      if action == 'hit':
+        self.player.receive_card(self.deck.deal())
+      elif action == 'stand':
+        return
+
+  """"
+  The dealer's turn function 
+
+  This function deals cards to the dealer until their hand value is at least 17.
+  """"     
+  def dealer_turn(self):
+
+    print("\nDealer's turn:")
+    while self.dealer.hand_value() < 17:
+      self.dealer.receive_card(self.deck.deal())
+
+""""
+The check_winner function checks who won the game.
+
+The function compares the hand values of the player and the dealer and prints the result.
 """"
