@@ -111,46 +111,44 @@ class Player:
           print(card)
 
 
-"""
-This is a class that represents the blackjack game.
-it involves the dealer dealing the player and dealers hands and then it checks for a win. 
-"""
-
 class Game:
+    """"
+    This is a class that represents the blackjack game.
+    it involves the dealer dealing the player and dealers hands and 
+    then it checks for a win. 
+    """
+    def __init__(self):
+        self.deck = Deck()
+        self.player = Player("Player")
+        self.dealer = Player("Dealer")
 
-  def __init__(self):
-      self.deck = Deck()
-      self.player = Player("Player")
-      self.dealer = Player("Dealer")
-
-"""
-This function works on validating input 
-If the input is incorrect the function asks for "Hit" or "Stand"
-"""
-
-def input_with_validation(self, prompt, valid_inputs):
-  while True:
-    user_input = input(prompt).lower().strip()
-    if user_input in valid_inputs:
-      return user_input
-      print("Invalid choice. Please enter Hit or Stand.")
-
-""""
-This function starts the game play of blackjack.
-It lists other functions, shuffle, recieveing cards, players turn, dealers turn, evaluating values and 
-checking for the winner. 
-"""
+    def input_with_validation(self, prompt, valid_inputs):
+        """"
+        This function works on validating input 
+        If the input is incorrect the function asks for "Hit" or "Stand"
+        """
+        while True:
+            user_input = input(prompt).lower().strip()
+            if user_input not in valid_inputs:
+                print("Invalid choice. Please enter Hit or Stand.")
+            if user_input in valid_inputs:
+                return user_input
 
 def play(self):
-    self.deck.shuffle()
-    for _ in range(2):
-      self.player.receive_card(self.deck.deal())
-      self.dealer.receive_card(self.deck.deal())
-    self.player_turn()
-    if self.player.hand_value() <= 21:
-      self.dealer_turn()
-    self.check_winner()
-
+        """"
+        This function starts the game play of blackjack.
+        It lists other functions, shuffle, recieveing cards, players turn, 
+        dealers turn, evaluating values and checking for the winner. 
+        """
+        self.deck.shuffle()
+        for _ in range(2):
+            self.player.receive_card(self.deck.deal())
+            self.dealer.receive_card(self.deck.deal())
+        self.player_turn()
+        if self.player.hand_value() <= 21:
+            self.dealer_turn()
+        self.check_winner()
+        
 """
 The players turn function 
 This function allows the player to hit or stand. If the player hits they are dealt a card if they stand it is the dealers turn. 
