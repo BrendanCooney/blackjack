@@ -179,27 +179,25 @@ def play(self):
             self.dealer.receive_card(self.deck.deal())
 
 
-"""
-This function checks who won the game.
-It compares the hand values of the player and dealer and prints the result
-"""
+  def check_winner(self): 
+          """
+          This function checks who won the game.
+          It compares the hand values of the player and dealer and prints the result
+          """
+          player_val = self.player.hand_value()
+          dealer_val = self.dealer.hand_value()
+        
+          print(f"Dealer's hand value: {dealer_val}")
 
-def check_winner(self): 
-  player_val = self.player.hand_value()
-  dealer_val = self.dealer.hand_vale()
-
-  print(f"\nYour hand value: {player_val}")
-  print(f"Dealer's hand value: {dealer_val}")
-
-  if dealer_val > 21 or (player_val <=21 and player_val > dealer_val):
-    print("You win!")
-  elif player_val == dealer_val:
-    print("It's a tie!")
-  else:
-    print("Dealer wins!")
-    print("")
-
-
+          if dealer_val > 21 or (player_val <=21 and player_val > dealer_val):
+              print("You win!")
+          elif player_val == dealer_val:
+              print("It's a tie!")
+          else:
+              print("Dealer wins!")
+              print("")
+          
 if __name__ == "__main__":
-  game = Game()
-  game.play()
+    game = Game()
+    player_name = get_player_name()
+    game.play()
