@@ -74,23 +74,24 @@ class Deck:
     def deal(self):
         """ This returns a card popped off the Card array"""
         return self.cards.pop()
-        
+
 """
 The Player Class is for the player in the card game.
 The attributes are the players name and the players hand. 
 The cards in the players hand must be printed to the console
 """
 class Player:
-
-
-  """
-  This function defines the player and the hand.
-  """
-
-  def __init__(self, name):
-      self.name = name
-      self.hand = []
-
+    """
+    The Player Class is for the player in the card game.
+    The attributes are the players name and the players hand. 
+    The cards in the players hand must be printed to the console
+    """
+    def __init__(self, name):
+        """
+        This function defines the player and the hand
+        """
+        self.name = name
+        self.hand = []
 
   def receive_card(self, card):
       self.hand.append(card)
