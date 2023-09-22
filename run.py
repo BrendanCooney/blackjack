@@ -22,40 +22,36 @@ It also has the attributes of rank (Ace,2..Jack,Queen,King)
 
 
 class Card:
+    """
+    This is the Class called Card
+    It has the attributes of suit (Clubs, Diamonds, Heards, Spades)
+    It also has the attributes of rank (Ace,2..Jack,Queen,King)
+    """
+    def __init__(self, suit, rank):
+        """
+        This initialises a card object
+        """
+        self.suit = suit
+        self.rank = rank
+        self.value = self.assign_value(rank)
+      
+    def __str__(self):
+        """
+        This function returns the values of the rank and suit of the card.
+        """
+        return f"{self.rank} of {self.suit}"
 
-  def __init__(self, suit, rank):
-    self.suit = suit
-    self.rank = rank
-    self.value = self.assign_value(rank)
-
-
-  """
-  This function returns the values of the rank and suit of the card.
-"""
-
-  def __str__(self):
-      return f"{self.rank} of {self.suit}"
-
-"""
-The assign_value  if - else function adds numerical values to the rank of the cards 
-"""
-
-
-  def assign_value(self, rank):
-    if rank in ["Jack", "Queen", "King"]:
-      return 10
-    elif rank == "Ace":
-      return 11
-    else:
-      return int(rank)
-
-"""
-This Class is for the deck of Cards.
-The first function defines the deck of cards and generates it.
-The  generate_deck function generates cards  in each deck with various values.
-The shuffle function shuffles cards using random.
-The deal function deals the cards taking the next card in the deck. 
-"""
+    def assign_value(self, rank):
+        """
+        The assign_value  if - else function adds numerical values to the 
+        rank of the cards 
+        """
+        if rank in ["Jack", "Queen", "King"]:
+            return 10
+        elif rank == "Ace":
+            return 11
+        else:
+            return int(rank)
 
 class Deck:
 
