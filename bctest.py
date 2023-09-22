@@ -1,17 +1,15 @@
 import random
 
+"""
+This function requests the players name before they play.
+The player name can be printed out after the game.
+"""
+
+
 def get_player_name():
-    """
-    This function requests the players name before they play.
-    The player name can be printed out after the game.
-    """
-    while True:
-        player_name = input("Enter your name:").strip().lower()
-        if player_name == '':
-            print('You must enter something that is not just a space')
-        else:   
-            print(f'Hey hi there {player_name}, lets play blackjack. Ready!')
-            return player_name
+    player_name = input("Enter your name:")
+    return player_name
+    print(get_player_name)
 
 
 """
@@ -29,25 +27,25 @@ class Card:
     self.value = self.assign_value(rank)
 
 
-  """
-  This function returns the values of the rank and suit of the card.
+"""
+This function returns the values of the rank and suit of the card.
 """
 
-  def __str__(self):
-      return f"{self.rank} of {self.suit}"
+def __str__(self):
+    return f"{self.rank} of {self.suit}"
 
 """
 The assign_value  if - else function adds numerical values to the rank of the cards 
 """
 
 
-  def assign_value(self, rank):
-    if rank in ["Jack", "Queen", "King"]:
-      return 10
-    elif rank == "Ace":
-      return 11
-    else:
-      return int(rank)
+def assign_value(self, rank):
+  if rank in ["Jack", "Queen", "King"]:
+    return 10
+  elif rank == "Ace":
+    return 11
+  else:
+    return int(rank)
 
 """
 This Class is for the deck of Cards.
