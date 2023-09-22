@@ -148,26 +148,26 @@ def play(self):
         if self.player.hand_value() <= 21:
             self.dealer_turn()
         self.check_winner()
-        
-"""
-The players turn function 
-This function allows the player to hit or stand. If the player hits they are dealt a card if they stand it is the dealers turn. 
-"""
 
-def player_turn(self):
-  while True:
-    print("Your Hand:")
-    self.player.display_hand()
-    if self.player.hand_value() > 21:
-      print ("Busted!")
-      return
-    action = self.input_with_validation("Do you want to 'hit' or 'stand'?",
-                                            ['hit', 'stand'])
-    if action == 'hit':
-      self.player.receive_card(self.deck.deal())
-    elif action == 'stand':
-      return
-
+ def player_turn(self):
+        """"
+        The players turn function 
+        This function allows the player to hit or stand. If the player hits 
+        they are dealt a card if they stand it is the dealers turn. 
+        """
+        while True:
+            print("Your Hand:")
+            self.player.display_hand()
+            print(f'The value of your hand is: {self.player.hand_value()}')
+            if self.player.hand_value() > 21:
+                print ("Busted!")
+                return
+            action = self.input_with_validation("Want to 'hit' or 'stand'?",
+                                                    ['hit', 'stand'])
+            if action == 'hit':
+                self.player.receive_card(self.deck.deal())
+            elif action == 'stand':
+                return
 """
 This function is the dealers turn in the game.
 This method deals cards to the dealer until their hand value is at least 17.
