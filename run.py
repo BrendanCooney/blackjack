@@ -54,22 +54,27 @@ class Card:
             return int(rank)
 
 class Deck:
-
-  def __init__(self):
-    self.cards = self.generate_deck()
-
-
-  def generate_deck(self):
-      suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
-      ranks = [str(i) for i in range(2, 11)] + ["Ace", "Jack", "Queen", "King"]
-      return [Card(suit, rank) for suit in suits for rank in ranks]
-
-  def shuffle(self):
-      random.shuffle(self.cards)
-
-  def deal(self):
-    return self.cards.pop()
-
+    """
+    This Class is for the deck of Cards.
+    """
+    def __init__(self):
+        """ This initialises a deck of cards """
+        self.cards = self.generate_deck()
+      
+    def generate_deck(self):
+        """ This returns an array of a deck of cards """
+        suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
+        ranks = [str(i) for i in range(2, 11)] + ["Ace", "Jack", "Queen", "King"]
+        return [Card(suit, rank) for suit in suits for rank in ranks]
+      
+    def shuffle(self):
+        """ This returns a shuffled deck of cards """
+        random.shuffle(self.cards)
+      
+    def deal(self):
+        """ This returns a card popped off the Card array"""
+        return self.cards.pop()
+        
 """
 The Player Class is for the player in the card game.
 The attributes are the players name and the players hand. 
