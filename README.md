@@ -17,14 +17,14 @@ Here is the live version of my project:
 https://pythonblackjack.herokuapp.com/
 
 
-![Python Responsive](/assets/images/python-responsive.PNG)
+![Python Responsive](/assets/images/responsive.PNG)
 
 ## How to Play
 ----
 
 When playing the Game follow the prompts of the messages in the console.
 Choose either "Hit" or "Stand" to get the closest to 21. The aim is 21 but the closest wins.
-If you get 21 you have scored Blackjack and will win. 
+If you get 21 you have scored Blackjack and will win or tie. 
 
 
 ## Features
@@ -32,50 +32,46 @@ If you get 21 you have scored Blackjack and will win.
 Existing Features:
 
 * This is the opening console screen of the application.
-* I have not used any libraries but just emojies in the text of the game. 
-* I have allocated three games per session with the dealer. 
-  After these sessions the player can choose to run the program again and repeat. 
-* The player must type "Hit","Stand" or "h","s" to play. All other Enntries will ask for the correct data. 
+* The player is asked for their name. 
+ 
 
 
-![BlackJackimage](/assets/images/blackjack-start.PNG)
+![BlackJackimage](/assets/images/welcome_pic.PNG)
 
 
-In the example below you can see the player has chosen hit meaning asking the dealer for another card. The result is Blackjack!
-the player wins. 
+* The player must type "Hit","Stand" to play. All other Enntries will ask for the correct data.
 
 
-![BlackJackPlay](/assets/images/blackjack-play.PNG)
+![BlackJackPlay](/assets/images/name_entered.PNG)
 
-In the next example you see the player asking the dealer for two hits and subsequently loosing the game:
+In the next example you see the player asking the dealer for a hit and subsequently loosing the game:
 
-![BlackJackPlay2](/assets/images/blackjack-play2.PNG)
+![BlackJackPlay2](/assets/images/game_play.PNG)
 
-On the Final play run you can see the player has asked for two hits and lost the game. The game asks the player to run the program again to start again.
+The Final scores are shown and the player is able to play the game again if the want to. 
 
-![blackJackPlay3](/assets/images/blackjack-play3.PNG)
 
 ## Testing
 ----
-All testing was done by myself and my sons on game play. 
+All testing was done by myself during game play and running the program.
 
-Testing invloved entering incorrect inforamtion for example numbers and text into the game. The continue prompts keep asking for valid data.
+Input validation and Pep8 compliance have been included in the testing the Code Institute https://pep8ci.herokuapp.com/
+was the application used for the Pep8 tests. 
  
 ## Bugs
 ----
+The Pep8 Linter has indicated these bugs. Some lines of code are too long:
 
-Although there are no apparent bugs in the code there are bugs in the syntax. ( I used my sons as bug testers and asked them to break the game.) There are syntax errors in the code which I was still working on a the time of submission.
-
-While the syntax spacing is not 100% the application does run and work. 
-
-* When putting the code through the PEP8 Phyton Linter I was able to reduce the syntax and spacing errors considerably (Down to 4 lines)
-However when running the code after this the program would not run. This is the reason I have left the code as it is as the program runs.
+Results:
+62: E501 line too long (81 > 79 characters)
+163: E127 continuation line over-indented for visual indent
+200: W292 no newline at end of file
 
 
 ## Deployment
 ______
 This project has been deployed from Git Hub to Heroku at the link above. 
-The project was deployed using code Institutes mockterminal for Heroku.
+The project was deployed using code Institutes mockterminal for Heroku. Github has been conected to Heroku for all commits. 
 
 ### Steps for Deployment:
 * Fork or clone this repository
@@ -84,8 +80,6 @@ The project was deployed using code Institutes mockterminal for Heroku.
 * Link the Heroku app to the repository 
 * Click on Deploy
 * This project selected the auto update option on Heroku as there was no API used
-
-
 
 
 ## References

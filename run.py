@@ -7,7 +7,7 @@ def get_player_name():
     The player name can be printed out after the game.
     """
     while True:
-        player_name = input("Welcome to Blackjack! Please enter your name:").strip().lower()
+        player_name = input("Please enter your name:").strip().lower()
         if player_name == '':
             print('You must enter something that is not just a space')
         else:
