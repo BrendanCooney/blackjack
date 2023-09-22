@@ -75,11 +75,6 @@ class Deck:
         """ This returns a card popped off the Card array"""
         return self.cards.pop()
 
-"""
-The Player Class is for the player in the card game.
-The attributes are the players name and the players hand. 
-The cards in the players hand must be printed to the console
-"""
 class Player:
     """
     The Player Class is for the player in the card game.
@@ -94,22 +89,26 @@ class Player:
         self.hand = []
 
   def receive_card(self, card):
-      self.hand.append(card)
-      self.adjust_for_ace()
-
-  def adjust_for_ace(self):
-      total_value = sum(card.value for card in self.hand)
-      num_aces = sum(1 for card in self.hand if card.rank == 'A')
-      while total_value > 21 and num_aces:
-        total_value -= 10
-        num_aces -= 1
-
-  def hand_value(self):
-      return sum(card.value for card in self.hand)
-
-  def display_hand(self):
-      for card in self.hand:
-        print(card)
+        """ This appends a card to the player """
+        self.hand.append(card)
+        self.adjust_for_ace()
+      
+    def adjust_for_ace(self):
+        """ This handles whether the ace is a ten or one """
+        total_value = sum(card.value for card in self.hand)
+        num_aces = sum(1 for card in self.hand if card.rank == 'A')
+        while total_value > 21 and num_aces:
+          total_value -= 10
+          num_aces -= 1
+          
+    def hand_value(self):
+        """ This returns the value of the hand """
+        return sum(card.value for card in self.hand)
+      
+    def display_hand(self):
+        """ This prints the players hand """
+        for card in self.hand:
+          print(card)
 
 """
 This is a class that represents the blackjack game.
