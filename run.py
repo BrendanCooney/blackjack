@@ -47,6 +47,7 @@ class Card:
         else:
             return int(rank)
 
+
 class Deck:
     """
     This Class is for the deck of Cards.
@@ -66,8 +67,9 @@ class Deck:
         random.shuffle(self.cards)
 
     def deal(self):
-        """ This returns a card popped off the Card array"""
+        """ This returns a card popped off the Card array """
         return self.cards.pop()
+
 
 class Player:
     """
@@ -84,17 +86,18 @@ class Player:
         self.hand = []
 
     def receive_card(self, card):
-          """ This appends a card to the player """
-          self.hand.append(card)
-          self.adjust_for_ace()
+        """ This appends a card to the player """
+        self.hand.append(card)
+        self.adjust_for_ace()
 
     def adjust_for_ace(self):
         """ This handles whether the ace is a ten or one """
         total_value = sum(card.value for card in self.hand)
         num_aces = sum(1 for card in self.hand if card.rank == 'A')
         while total_value > 21 and num_aces:
-          total_value -= 10
-          num_aces -= 1
+            total_value -= 10
+            num_aces -= 1
+
     def hand_value(self):
         """ This returns the value of the hand """
         return sum(card.value for card in self.hand)
@@ -102,7 +105,7 @@ class Player:
     def display_hand(self):
         """ This prints the players hand """
         for card in self.hand:
-          print(card)
+            print(card)
 
 
 class Game:
@@ -129,19 +132,19 @@ class Game:
                 return user_input
 
     def play(self):
-      """"
-      This function starts the game play of blackjack.
-      It lists other functions, shuffle, recieveing cards, players turn,
-      dealers turn, evaluating values and checking for the winner.
-      """
-      self.deck.shuffle()
-      for _ in range(2):
-          self.player.receive_card(self.deck.deal())
-          self.dealer.receive_card(self.deck.deal())
-      self.player_turn()
-      if self.player.hand_value() <= 21:
-          self.dealer_turn()
-      self.check_winner()  
+        """"
+        This function starts the game play of blackjack.
+        It lists other functions, shuffle, recieveing cards, players turn,
+        dealers turn, evaluating values and checking for the winner.
+        """
+        self.deck.shuffle()
+        for _ in range(2):
+            self.player.receive_card(self.deck.deal())
+            self.dealer.receive_card(self.deck.deal())
+        self.player_turn()
+        if self.player.hand_value() <= 21:
+            self.dealer_turn()
+        self.check_winner()
 
     def player_turn(self):
         """"
@@ -154,7 +157,7 @@ class Game:
             self.player.display_hand()
             print(f'The value of your hand is: {self.player.hand_value()}')
             if self.player.hand_value() > 21:
-                print ("Busted!")
+                print("Busted!")
                 return
             action = self.input_with_validation("Want to 'hit' or 'stand'?",
                                                     ['hit', 'stand'])
@@ -173,23 +176,24 @@ class Game:
             self.dealer.receive_card(self.deck.deal())
 
     def check_winner(self):
-          """
-          This function checks who won the game by comparing player and dealer.
-          It also prints the result
-          """
-          player_val = self.player.hand_value()
-          dealer_val = self.dealer.hand_value()
-        
-          print(f"Dealer's hand value: {dealer_val}")
+        """
+        This function checks who won the game by comparing player and dealer.
+        It also prints the result
+        """
+        player_val = self.player.hand_value()
+        dealer_val = self.dealer.hand_value()
 
-          if dealer_val > 21 or (player_val <=21 and player_val > dealer_val):
-              print("You win! Run the program to play again!")
-          elif player_val == dealer_val:
-              print("It's a tie! Run the program to play again!")
-          else:
-              print("Dealer wins! Run the program to play again!")
-              print("")
-          
+        print(f"Dealer's hand value: {dealer_val}")
+
+        if dealer_val > 21 or (player_val <= 21 and player_val > dealer_val):
+            print("You win! Run the program to play again!")
+        elif player_val == dealer_val:
+            print("It's a tie! Run the program to play again!")
+        else:
+            print("Dealer wins! Run the program to play again!")
+            print("")
+
+
 if __name__ == "__main__":
     game = Game()
     player_name = get_player_name()
