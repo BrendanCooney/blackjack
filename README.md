@@ -35,19 +35,28 @@ Existing Features:
 * The player is asked for their name. 
 
 
-![BlackJackimage](/assets/images/welcome_pic.PNG)
+![OpeningScreen](/assets/images/opening_screen.PNG)
 
 
-* The player must type "Hit","Stand" to play. All other Enntries will ask for the correct data.
+* The player must type "Hit","Stand" to play. All other Entries will ask for the correct data.
 
 
-![BlackJackPlay](/assets/images/name_entered.PNG)
+![Hitorstand](/assets/images/hitorstand.PNG)
 
-In the next example you see the player asking the dealer for a hit and subsequently loosing the game:
+In the next example you see the dealer asking the player for a hit, now the player has a number closer to 21:
 
-![BlackJackPlay2](/assets/images/game_play.PNG)
+![Result1](/assets/images/result1.PNG)
 
-The Final scores are shown and the player is able to play the game again if the want to. 
+In this exmple the player asks the dealer for another hit but the score is too high so the player looses.
+
+![Result2](/assets/images/result2.PNG)
+
+In this exmple of another game the player has beaten the dealer. 
+
+![Result3](/assets/images/result3.PNG)
+
+
+The Final scores are shown at the end of each game and the player is able to play the game again if the want to. 
 
 
 ## Testing
@@ -59,13 +68,11 @@ was the application used for the Pep8 tests.
  
 ## Bugs
 ----
-The Pep8 Linter has indicated these bugs. Some lines of code are too long:
+After many tests I am not sure if there are any bugs. I spent a great deal of time working on the Python Pep8 Linter.
+I was able to bring it down to no errors found:
 
-Results:
-62: E501 line too long (81 > 79 characters)
-163: E127 continuation line over-indented for visual indent
-200: W292 no newline at end of file
 
+![Linter](/assets/images/linter.PNG)
 
 ## Deployment
 ______
