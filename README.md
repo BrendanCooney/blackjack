@@ -33,7 +33,6 @@ Existing Features:
 
 * This is the opening console screen of the application.
 * The player is asked for their name. 
- 
 
 
 ![BlackJackimage](/assets/images/welcome_pic.PNG)
@@ -92,6 +91,8 @@ ______
 * https://bicyclecards.com/how-to-play/blackjack/
 * https://www.geeksforgeeks.org/blackjack-console-game-using-python/
 * https://www.geeksforgeeks.org/python-list-pop-method/
+* https://peps.python.org/pep-0008/#:~:text=Long%20lines%20can%20be%20broken,a%20backslash%20for%20line%20continuation.
+
 
 
 

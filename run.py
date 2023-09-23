@@ -59,7 +59,8 @@ class Deck:
     def generate_deck(self):
         """ This returns an array of a deck of cards """
         suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
-        ranks = [str(i) for i in range(2, 11)] + ["Ace", "Jack", "Queen", "King"]
+        ranks = ([str(i) for i in range(2, 11)]
+                 + ["Ace", "Jack", "Queen", "King"])
         return [Card(suit, rank) for suit in suits for rank in ranks]
 
     def shuffle(self):
@@ -159,8 +160,9 @@ class Game:
             if self.player.hand_value() > 21:
                 print("Busted!")
                 return
-            action = self.input_with_validation("Want to 'hit' or 'stand'?",
-                                                    ['hit', 'stand'])
+            action = self.input_with_validation(
+                "Want to 'hit' or 'stand'?",
+                ['hit', 'stand'])
             if action == 'hit':
                 self.player.receive_card(self.deck.deal())
             elif action == 'stand':
